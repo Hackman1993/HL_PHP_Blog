@@ -55,6 +55,15 @@ return [
             'use_path_style_endpoint' => env('AWS_USE_PATH_STYLE_ENDPOINT', false),
             'throw' => false,
         ],
+        'huawei_obs' => [
+            'driver' => 'huawei_obs',
+            'key' => 'CMX8HUTMXBOZSE3YNYZH',
+            'secret' => '0lYUTMbXgEg1DgYD1WLN3GhxbJ2qPKzzWV9n8jNJ',
+            'bucket' => 'zk-tec',
+            'endpoint' => 'https://obs.cn-south-1.myhuaweicloud.com',
+            'ssl_verify' => true,
+            'debug' => true
+        ]
 
     ],
 

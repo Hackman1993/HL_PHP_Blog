@@ -28,4 +28,5 @@ class AuthController extends Controller
             return $this->json_response(null,'auth.invalid_credential', 403);
         }
     }
+
 }

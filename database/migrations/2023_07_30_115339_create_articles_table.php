@@ -17,7 +17,7 @@ return new class extends Migration
             $table->longText("content");
             $table->foreignId("fn_author_id");
             $table->unsignedInteger("order")->default(0);
-            $table->json("keywords")->default('');
+            $table->json("keywords");
             $table->timestamps();
             $table->softDeletes();
         });

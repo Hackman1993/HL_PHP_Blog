@@ -14,6 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::post("/user/login", 'App\Http\Controllers\AuthController@login');
+Route::get("/content/art_category", 'App\\Http\\Controllers\\ArticleCategoryController@view');
+Route::post("/editor/upload", 'App\\Http\\Controllers\\AttachmentController@editorUpload');
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
