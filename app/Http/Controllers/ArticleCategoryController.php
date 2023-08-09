@@ -10,12 +10,11 @@ class ArticleCategoryController extends Controller
 {
     public function view(Request $request): \Illuminate\Http\JsonResponse
     {
-        ArticleCategory::fixTree();
 
-        $query = ArticleCategory::orderBy("priority");
+        $query = ArticleCategory::query();
         if($request->has('except'))
             $query->where("art_category_id", "<>", $request->input('except'));
 
-        return $this->json_response($query->get()->toTree());
+        return $this->json_response($query->get());
     }
 }

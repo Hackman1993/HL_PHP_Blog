@@ -14,12 +14,6 @@ return new class extends Migration
         Schema::create('t_article_category', function (Blueprint $table) {
             $table->id("art_category_id");
             $table->string("label");
-            $table->uuid('_lft')->nullable();
-            $table->uuid('_rgt')->nullable();
-            $table->unsignedMediumInteger("priority")->default(0);
-            $table->unsignedInteger('action_type')->default(0)->comment("0:正常文章列表 1:网址跳转 2 弹出二维码");
-            $table->string("value")->default("")->comment("type为0时此处不生效， type为1时填入跳转网址");
-            $table->uuid('fk_parent_id')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

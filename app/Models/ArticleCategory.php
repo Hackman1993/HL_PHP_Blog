@@ -10,19 +10,15 @@ use Kalnoy\Nestedset\NodeTrait;
 
 class ArticleCategory extends Model
 {
-    use HasFactory, SoftDeletes, NodeTrait;
+    use HasFactory, SoftDeletes;
     protected $table = "t_article_category";
     protected $primaryKey="art_category_id";
-    protected $fillable=['label', 'priority', 'action_type', 'value'];
-    protected $hidden = ['_lft', '_rgt', 'priority', 'created_at', 'updated_at', 'deleted_at', 'fk_parent_id'];
+    protected $fillable=['label', 'action_type', 'value', 'fn_category_id'];
+    protected $hidden = ['_lft', '_rgt', 'priority', 'created_at', 'updated_at', 'deleted_at', 'fn_parent_id'];
 
-    public function getParentIdName(): string
-    {
-        return 'fk_parent_id';
-    }
 
     public function articles(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
-        return $this->hasMany(Article::class, 'fk_category_id', 'art_category_id');
+        return $this->hasMany(Article::class, 'fn_category_id', 'art_category_id');
     }
 }
