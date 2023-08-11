@@ -30,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('t_menu');
+        Schema::dropIfExists('t_backend_menu');
     }
 };

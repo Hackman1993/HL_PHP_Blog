@@ -19,7 +19,8 @@ Route::get('/frontend/menu', "App\\Http\\Controllers\\FrontendMenuController@vie
 Route::post("/user/login", 'App\Http\Controllers\AuthController@login');
 Route::get("/content/art_category", 'App\\Http\\Controllers\\ArticleCategoryController@view');
 Route::post("/content/article/create", 'App\\Http\\Controllers\\ArticleController@create');
-Route::put("/content/article/update/{target}", 'App\\Http\\Controllers\\ArticleController@update');
+Route::post("/content/article/update/{target}", 'App\\Http\\Controllers\\ArticleController@update');
+Route::get("/content/article/content/{target}", 'App\\Http\\Controllers\\ArticleController@content');
 Route::get("/content/article", 'App\\Http\\Controllers\\ArticleController@list');
 Route::post("/editor/upload", 'App\\Http\\Controllers\\AttachmentController@editorUpload');
 Route::any("/backend/menu", 'App\\Http\\Controllers\\MenuController@view');

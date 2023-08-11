@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string("access_url", 255);
             $table->string("thumbnail_url", 255);
             $table->string("original_name", 255);
+            $table->nullableMorphs('attachable');
             $table->unsignedBigInteger("file_size")->default(0);
             $table->timestamps();
             $table->softDeletes();

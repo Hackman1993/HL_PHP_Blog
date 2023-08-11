@@ -22,6 +22,14 @@ class ArticleController extends Controller
         return $this->json_response([]);
     }
 
+    public function content(Request $request, Article $target)
+    {
+        //$article->author()->associate($request->user());
+        $target->content_html = $target->content;
+
+        return $this->json_response($target);
+    }
+
     public function update(Request $request, Article $target)
     {
         $target->update($request->input());

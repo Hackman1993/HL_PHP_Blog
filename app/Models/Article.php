@@ -12,6 +12,9 @@ class Article extends Model
     protected $table="t_article";
     protected $primaryKey="article_id";
     protected $fillable=["title", "content", "keywords", "fn_category_id"];
-    protected $hidden=["created_at", "updated_at", "deleted_at"];
+    protected $hidden=["updated_at", "deleted_at", "content"];
+    protected $casts=[
+        "created_at" => "date:Y-m-d"
+    ];
 
 }
