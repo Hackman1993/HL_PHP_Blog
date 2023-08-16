@@ -16,9 +16,9 @@ class Attachment extends Model
     protected $fillable=['url', 'file_size', 'storage_path', 'access_url', 'thumbnail_url', "original_name"];
     protected $hidden = ['created_at', 'updated_at', 'deleted_at'];
 
-    public function target(): \Illuminate\Database\Eloquent\Relations\MorphTo
+    public function attachable(): \Illuminate\Database\Eloquent\Relations\MorphTo
     {
-        return $this->morphTo('target');
+        return $this->morphTo('attachable');
     }
 
     public function uploader(): \Illuminate\Database\Eloquent\Relations\BelongsTo
