@@ -16,10 +16,11 @@ return new class extends Migration
             $table->foreignId("fn_owner_id");
             $table->string("url", 255);
             $table->string("access_url", 255);
-            $table->string("thumbnail_url", 255);
+            $table->string("hashname", 255);
             $table->string("original_name", 255);
             $table->nullableMorphs('attachable');
             $table->unsignedBigInteger("file_size")->default(0);
+            $table->boolean('persist')->default(0);
             $table->timestamps();
             $table->softDeletes();
         });

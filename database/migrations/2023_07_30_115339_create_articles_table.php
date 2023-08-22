@@ -18,7 +18,7 @@ return new class extends Migration
             $table->foreignId("fn_author_id");
             $table->foreignId("fn_category_id");
             $table->text("abstract");
-
+            $table->foreignId('fn_cover_id');
             $table->unsignedInteger("order")->default(0);
             $table->text("keywords");
             $table->timestamps();

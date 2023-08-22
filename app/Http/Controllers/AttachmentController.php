@@ -9,26 +9,32 @@ use Illuminate\Support\Facades\Storage;
 
 class AttachmentController extends Controller
 {
-    public function editorUpload(Request $request): \Illuminate\Http\JsonResponse
+    public function upload(Request $request): \Illuminate\Http\JsonResponse
     {
+        $request->validate([
+            'file' => 'file|required'
+        ]);
         $file = $request->file('file');
         $file_hash_name = $file->hashName();
+        $storage_path = "temp_upload/".$file_hash_name;
 
-        HuaweiObsManager::put("assets/image/".$file_hash_name, $request->file('file'), ["Expires" => 1]);
-        Storage::disk("huawei_obs")->put("assets/image/".$file_hash_name, $request->file('file'),[]);
-        $path = $file->storePubliclyAs("assets/image", $file_hash_name, "huawei_obs");
-        $attachment = new Attachment([
-            "original_name" => $file->getClientOriginalName(),
-            "url" => '${OSS_URL}/assets/image/"'.$file_hash_name,
-            "file_size" => $file->getSize(),
-            "access_url" => "/assets/image/".$file_hash_name,
-            "thumbnail_url" => ""
-        ]);
-        $attachment->fn_owner_id = 1;
-        $attachment->save();
-        return response()->json([
-            'attachment_id' => $attachment->attachment_id,
-            'location' => $attachment->url
-        ]);
+        if(HuaweiObsManager::put($storage_path, $request->file('file'))){
+            $attachment = new Attachment([
+                "original_name" => $file->getClientOriginalName(),
+                "url" => $storage_path,
+                "file_size" => $file->getSize(),
+                "access_url" => env('OBS_VISIT_BASE', "")."/".$storage_path,
+                "hashname" => $file_hash_name
+            ]);
+            $attachment->fn_owner_id = 1;
+            $attachment->save();
+            return $this->json_response(Attachment::find($attachment->attachment_id));
+        }
+        return $this->json_response();
+    }
+
+    public function info(Request $request, Attachment $target): \Illuminate\Http\JsonResponse
+    {
+        return $this->json_response($target);
     }
 }

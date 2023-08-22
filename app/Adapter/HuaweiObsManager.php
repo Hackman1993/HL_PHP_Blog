@@ -2,6 +2,7 @@
 
 namespace App\Adapter;
 
+use Illuminate\Support\Facades\Log;
 use Obs\ObsClient;
 
 class HuaweiObsManager
@@ -11,14 +12,10 @@ class HuaweiObsManager
         $this->config = config("filesystems.disks." . $diskname);
     }
 
-    public static function put($path, $file, $option, $diskname = "huawei_obs")
+    public static function put($path, $file, $diskname = "huawei_obs")
     {
         $config = self::instance($diskname)->config;
         $client = new ObsClient($config);
-        $res2 = $client->optionsObject([
-            "Bucket" => $config['bucket'],
-            "Key" => "assets/image/LoaHAoW5L3kY3kdWOf5YcvaJMVb7qCPXdSCxjNOF.jpg"
-        ]);
 
         $file_path = $file->getRealPath();
         $resp = $client->putObject([
@@ -28,7 +25,24 @@ class HuaweiObsManager
         ]);
 
         if ($resp["HttpStatusCode"] == 200) {
-            return '${OBS_URL}' . $path;
+            return $path;
+        } else {
+            return null;
+        }
+    }
+
+    public static function copy($src, $target, $diskname = "huawei_obs")
+    {
+        $config = self::instance($diskname)->config;
+        $client = new ObsClient($config);
+        $resp = $client->copyObject([
+            'Bucket' => $config['bucket'],
+            'Key' => $target,
+            'CopySource' => $config['bucket'].'/'.$src,
+        ]);
+
+        if ($resp["HttpStatusCode"] == 200) {
+            return $target;
         } else {
             return null;
         }

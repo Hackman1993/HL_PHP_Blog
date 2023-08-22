@@ -11,7 +11,7 @@ class Article extends Model
     use HasFactory, SoftDeletes;
     protected $table="t_article";
     protected $primaryKey="article_id";
-    protected $fillable=["title", "content", "keywords", "fn_category_id", "abstract"];
+    protected $fillable=["title", "fn_category_id", "abstract", 'fn_cover_id'];
     protected $hidden=["updated_at", "deleted_at", "content"];
     protected $casts=[
         "created_at" => "date:Y-m-d"
@@ -23,5 +23,10 @@ class Article extends Model
 
     public function attachments(){
         return $this->morphMany(Attachment::class, "attachable");
+    }
+
+    public function cover(): \Illuminate\Database\Eloquent\Relations\HasOne
+    {
+        return $this->hasOne(Attachment::class, 'attachment_id', 'fn_cover_id');
     }
 }
