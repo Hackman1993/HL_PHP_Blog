@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg header-navbar" style="z-index: 1">
+<nav class="navbar navbar-expand-lg header-navbar" style="z-index: 3">
     <div class="container-fluid">
         <a class="navbar-brand" href="#">
             <div class="zk-logo" style="background-color: #C30D23; width: 128px; height: 64px"></div>
