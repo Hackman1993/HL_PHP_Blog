@@ -24,7 +24,6 @@
 
         .page-section {
             min-height: 100vh;
-            height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: left;
@@ -178,7 +177,7 @@
         </div>
     </div>
     <div class="row" style="flex-grow: 2; width: 100%">
-        <div class="case_category col-3"
+        <div class="case_category col-12 col-xs-6 col-sm-6 col-md-6 col-lg-3"
              style="background-image: url(https://zk-tec.obs.cn-south-1.myhuaweicloud.com/static/case_show_category_bg1.png)">
             <div style="width: 80%">
                 <p>策划设计、施工、维护<br/>一体化服务 <br/></p>
@@ -187,7 +186,7 @@
                 <div class="row" style="width:50%;height: 1px; border-bottom: 1px solid white"></div>
             </div>
         </div>
-        <div class="case_category col-3"
+        <div class="case_category col-12 col-xs-6 col-sm-6 col-md-6 col-lg-3"
              style="background-image: url(https://zk-tec.obs.cn-south-1.myhuaweicloud.com/static/case_show_category_bg2.png)">
             <div style="width: 80%">
                 <p>策划设计、施工、维护<br/>一体化服务 <br/></p>
@@ -196,7 +195,7 @@
                 <div class="row" style="width:50%;height: 1px; border-bottom: 1px solid white"></div>
             </div>
         </div>
-        <div class="case_category col-3"
+        <div class="case_category  col-12 col-xs-6 col-sm-6 col-md-6 col-lg-3"
              style="background-image: url(https://zk-tec.obs.cn-south-1.myhuaweicloud.com/static/case_show_category_bg3.png)">
             <div style="width: 80%">
                 <p>策划设计、施工、维护<br/>一体化服务 <br/></p>
@@ -205,7 +204,7 @@
                 <div class="row" style="width:50%;height: 1px; border-bottom: 1px solid white"></div>
             </div>
         </div>
-        <div class="case_category col-3"
+        <div class="case_category  col-12 col-xs-6 col-sm-6 col-md-6 col-lg-3"
              style="background-image: url(https://zk-tec.obs.cn-south-1.myhuaweicloud.com/static/case_show_category_bg4.png)">
             <div style="width: 80%">
                 <p>策划设计、施工、维护<br/>一体化服务 <br/></p>
@@ -214,7 +213,7 @@
                 <div class="row" style="width:50%;height: 1px; border-bottom: 1px solid white"></div>
             </div>
         </div>
-        <div class="case_category col-3"
+        <div class="case_category col-12 col-xs-6 col-sm-6 col-md-6 col-lg-3"
              style="background-image: url(https://zk-tec.obs.cn-south-1.myhuaweicloud.com/static/case_show_category_bg5.png)">
             <div style="width: 80%">
                 <p>策划设计、施工、维护<br/>一体化服务 <br/></p>
@@ -223,7 +222,7 @@
                 <div class="row" style="width:50%;height: 1px; border-bottom: 1px solid white"></div>
             </div>
         </div>
-        <div class="case_category col-3"
+        <div class="case_category col-12 col-xs-6 col-sm-6 col-md-6 col-lg-3"
              style="background-image: url(https://zk-tec.obs.cn-south-1.myhuaweicloud.com/static/case_show_category_bg6.png)">
             <div style="width: 80%">
                 <p>策划设计、施工、维护<br/>一体化服务 <br/></p>
@@ -232,7 +231,7 @@
                 <div class="row" style="width:50%;height: 1px; border-bottom: 1px solid white"></div>
             </div>
         </div>
-        <div class="case_category col-3"
+        <div class="case_category col-12 col-xs-6 col-sm-6 col-md-6 col-lg-3"
              style="background-image: url(https://zk-tec.obs.cn-south-1.myhuaweicloud.com/static/case_show_category_bg7.png)">
             <div style="width: 80%">
                 <p>策划设计、施工、维护<br/>一体化服务 <br/></p>
@@ -241,7 +240,7 @@
                 <div class="row" style="width:50%;height: 1px; border-bottom: 1px solid white"></div>
             </div>
         </div>
-        <div class="case_category col-3"
+        <div class="case_category col-12 col-xs-6 col-sm-6 col-md-6 col-lg-3"
              style="background-image: url(https://zk-tec.obs.cn-south-1.myhuaweicloud.com/static/case_show_category_bg8.png)">
             <div style="width: 80%">
                 <p>策划设计、施工、维护<br/>一体化服务 <br/></p>

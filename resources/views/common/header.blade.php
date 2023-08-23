@@ -1,5 +1,5 @@
-<nav class="navbar navbar-expand-lg header-navbar" style="z-index: 3">
-    <div class="container-fluid">
+<nav class="navbar navbar-expand-lg header-navbar" style="z-index: 3; min-width: 400px">
+    <div style="height: 64px; flex-grow: 1">
         <a class="navbar-brand" href="/">
             <div class="zk-logo" style="background-color: #C30D23; width: 128px; height: 64px"></div>
         </a>
@@ -8,8 +8,8 @@
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent" style="justify-content: flex-end">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0" style="margin-right: 0!important;">
             @foreach($menus as $menu)
                 @if(sizeof($menu->children) == 0)
                     <li class="nav-item">
