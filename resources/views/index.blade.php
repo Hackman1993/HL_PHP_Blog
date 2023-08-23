@@ -101,6 +101,11 @@
         .friend-link:hover{
             color: darkgray;
         }
+        @media (max-width: 992px){
+            .case_category{
+                padding: 50px 0;
+            }
+        }
     </style>
 <body>
 @include('common.header')
@@ -135,7 +140,7 @@
             </div>
             <div class="row"
                  style="align-items:center; height:100%; padding:40px 0; background-color:rgb(248,253,255)">
-                <div class="col cols-6" style="padding: 40px">
+                <div class="col-md-6" style="padding: 40px">
                     <div class="zk-logo" style="background-color: #C30D23; width: 128px; height: 64px"></div>
                     <p>
                         云南智控科技有限公司成立于2013年，位于昆明市五华区金鼎科技园20号平台，主营展厅场馆建设与基础教育综合服务。是一家致力教育、科技、文化融合的服务型企业。
@@ -147,7 +152,7 @@
                         公司目前拥有教育服务、策划设计、影视制作、软件开发、工程实施等专业团队。缴纳社保人员35人，均毕业于相关院校及专业，其中硕士2人，本科26人；持有包括：注册会计师、建造师执业资格、安全员、教师资格，等执业资格证书。
                     </p>
                 </div>
-                <div class="col cols-6" style="padding:40px 160px 40px 40px; text-align:center">
+                <div class="col-md-6" style="padding:40px 160px 40px 40px; text-align:center">
                     <img src="https://zk-tec.obs.cn-south-1.myhuaweicloud.com/static/section1_bg.png"
                          style="width:100%;box-shadow:40px 20px 2px rgb(15,80,184); height:100%;" alt=""/>
                 </div>
@@ -161,12 +166,12 @@
         <div
             style="width: 100%;height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: flex-end">
             <div style="padding-right: 50px">
-                <div class="row" style="flex-direction: row; justify-content: flex-end">
+                <div class="row" style="flex-direction: row; justify-content: flex-end;font-size: 40px">
                     <span
-                        style="font-size: 50px;padding: 0 10px; font-weight: bold; color: white;width: unset">案例展示</span>
+                        style="padding: 0 10px; font-weight: bold; color: white;width: unset">案例展示</span>
                     <div
                         style="display:inline;margin:auto 10px; width: 20px; height:20px; border-radius: 50%;background-color: white"></div>
-                    <span style="font-size: 50px; padding:0 10px; color:white;width: unset">THE CASE SHOWS</span>
+                    <span style="padding:0 10px; color:white;width: unset; text-align: right">THE CASE SHOWS</span>
                 </div>
                 <div class="row" style="align-content:end;align-items: center">
                     <div
