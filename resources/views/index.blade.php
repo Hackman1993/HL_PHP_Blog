@@ -101,9 +101,18 @@
         .friend-link:hover{
             color: darkgray;
         }
+
+        .footer-container{
+            margin:24px 50px;
+        }
         @media (max-width: 992px){
             .case_category{
                 padding: 50px 0;
+            }
+        }
+        @media (max-width: 576px){
+            .footer-container{
+                margin: 24px 20px;
             }
         }
     </style>
@@ -165,7 +174,7 @@
     <div id="section-3-row" style="padding-top: 64px">
         <div
             style="width: 100%;height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: flex-end">
-            <div style="padding-right: 50px">
+            <div style="padding: 30px 50px">
                 <div class="row" style="flex-direction: row; justify-content: flex-end;font-size: 40px">
                     <span
                         style="padding: 0 10px; font-weight: bold; color: white;width: unset">案例展示</span>
@@ -266,7 +275,7 @@
         </div>
     </div>
     <div style="background-color:rgb(39,46,59);width: 100%; height: 50%">
-        <div style="margin:24px 50px;">
+        <div class="footer-container">
             <div class="row" style="height:64px; align-items: center">
                 <div class="zk-logo" style="background-color: #C30D23; width: 128px; height: 64px"></div>
             </div>
