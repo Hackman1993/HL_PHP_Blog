@@ -289,11 +289,10 @@
                     Intelligence Control Technology Co.,LTD<br/></span>
                 <span style="color:rgb(204,204,204); margin-bottom:0">滇ICP备2022000967号</span>
             </div>
-            <hr style="color: white"/>
-            <div class="row">
-                <div>
-                <span style="border-color:rgb(90,95,109); color:rgb(90,95,109)">我是有底线的</span>
-                </div>
+            <div class="row" style="align-items: center">
+                <hr style="color: white; margin: 0 10px 0 0; flex-grow: 1; width: auto; height: 1px"/>
+                <span style="color:rgb(90,95,109);width: auto">我是有底线的</span>
+                <hr style="color: white; margin: 0 0 0 10px; flex-grow: 1;width: auto;  height: 1px"/>
             </div>
         </div>
     </div>
