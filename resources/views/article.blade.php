@@ -74,6 +74,10 @@
             margin-left: -2em
         }
 
+        .article-side-panel-item{
+            margin-bottom: 20px;
+        }
+
         .search-panel{
             background-color:white;
         }
@@ -91,15 +95,35 @@
         .search-panel-content{
             padding:20px 20px 5px 20px;
         }
-
+        @media (min-width: 768px){
+            .article-side-panel{
+                padding-left: 10px;
+            }
+        }
     </style>
+
 <body>
 @include('common.header')
 
 <div class="row"
      style="padding-top: 124px; justify-content: center;background-color:rgb(242,242,242);flex-grow:1; min-height: 100vh">
-    <div class="row" style="min-height:100%;width: 66.66%">
-        <div class="col-8" style="">
+    <div class="row" style="min-height:100%;width: 66.66%; flex-direction: row-reverse">
+        <div class="col-12 col-md-4 article-side-panel">
+            <div class="article-side-panel-item">
+            <div class="search-panel" style="margin-top:0">
+                <div class="search-panel-title">
+                    搜索
+                </div>
+                <div class="search-panel-content">
+                    <div class="input-group mb-3" style="background-color:white; border-radius:3px;">
+                        <input type="text" class="form-control" placeholder="" aria-label="Example text with button addon" aria-describedby="btn-serch">
+                        <button class="btn btn-danger" type="button" id="btn-serch" aria-label="搜索">搜索</button>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+        <div class="col-md-8" style="">
             <div>
                 @if($article->cover)
                     <img class="article-post" src="{{$article->cover->access_url}}" alt=""/>
@@ -117,19 +141,6 @@
             </div>
             <div class="article-content" style="margin-top: 20px">
                 {!! $article->content  !!}
-            </div>
-        </div>
-        <div class="col-4" style="padding-left: 10px">
-            <div class="search-panel" style="margin-top:0">
-                <div class="search-panel-title">
-                    搜索
-                </div>
-                <div class="search-panel-content">
-                    <div class="input-group mb-3" style="background-color:white; border-radius:3px;">
-                        <input type="text" class="form-control" placeholder="" aria-label="Example text with button addon" aria-describedby="btn-serch">
-                        <button class="btn btn-danger" type="button" id="btn-serch" aria-label="搜索">搜索</button>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
