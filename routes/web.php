@@ -26,3 +26,13 @@ Route::get("/article/{target}", function (\Illuminate\Http\Request $request, \Ap
     $data = FrontendMenu::all()->toTree();
     return view('article')->with('article', $target)->with('menus', $data);
 });
+
+Route::get("/search", function (\Illuminate\Http\Request $request){
+    $data = FrontendMenu::all()->toTree();
+    $query = \App\Models\Article::query();
+    if($request->has('search')){
+        $query->whereFullText(['content', 'title', 'keywords'], $request['search']);
+    }
+
+    return view('search')->with('menus', $data)->with('articles', $query->paginate($request['limit']? $request['limit']:10))->with('search', $request['search']);
+});

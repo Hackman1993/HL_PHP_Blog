@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Laravel</title>
+    <title>云南智控科技有限公司 - {{$article->title}}</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <style>
@@ -42,61 +42,63 @@
             width: 100%;
         }
 
-        .article-title{
+        .article-title {
             padding: 10px 0;
-            font-size:30px;
-            color:rgb(199, 43, 58);
+            font-size: 30px;
+            color: rgb(199, 43, 58);
             font-weight: bolder;
         }
 
-        .article-date{
-            color:#A0A0A0;
-            text-align:right;
+        .article-date {
+            color: #A0A0A0;
+            text-align: right;
         }
-        .article-keywords{
+
+        .article-keywords {
             font-weight: bolder;
         }
 
-        .article-content p{
-            text-indent :2em;
+        .article-content p {
+            text-indent: 2em;
         }
 
-        .article-content iframe{
-            aspect-ratio:16/9;
-            width:100%;
+        .article-content iframe {
+            aspect-ratio: 16/9;
+            width: 100%;
             margin-left: -2em
         }
 
 
-        .article-content img{
+        .article-content img {
             max-width: 100%;
             height: auto;
             margin-left: -2em
         }
 
-        .article-side-panel-item{
+        .article-side-panel-item {
             margin-bottom: 20px;
         }
 
-        .search-panel{
-            background-color:white;
+        .search-panel {
+            background-color: white;
         }
 
-        .search-panel-title{
-            font-size:20px;
-            line-height:50px;
+        .search-panel-title {
+            font-size: 20px;
+            line-height: 50px;
             padding: 0 20px;
             font-weight: bolder;
             border-top-left-radius: 3px;
             border-top-right-radius: 3px;
-            background-color: rgb(229,229,229)
+            background-color: rgb(229, 229, 229)
         }
 
-        .search-panel-content{
-            padding:20px 20px 5px 20px;
+        .search-panel-content {
+            padding: 20px 20px 5px 20px;
         }
-        @media (min-width: 768px){
-            .article-side-panel{
+
+        @media (min-width: 768px) {
+            .article-side-panel {
                 padding-left: 10px;
             }
         }
@@ -109,19 +111,7 @@
      style="padding-top: 124px; justify-content: center;background-color:rgb(242,242,242);flex-grow:1; min-height: 100vh">
     <div class="row" style="min-height:100%;width: 66.66%; flex-direction: row-reverse">
         <div class="col-12 col-md-4 article-side-panel">
-            <div class="article-side-panel-item">
-            <div class="search-panel" style="margin-top:0">
-                <div class="search-panel-title">
-                    搜索
-                </div>
-                <div class="search-panel-content">
-                    <div class="input-group mb-3" style="background-color:white; border-radius:3px;">
-                        <input type="text" class="form-control" placeholder="" aria-label="Example text with button addon" aria-describedby="btn-serch">
-                        <button class="btn btn-danger" type="button" id="btn-serch" aria-label="搜索">搜索</button>
-                    </div>
-                </div>
-            </div>
-            </div>
+            @include('common.search')
         </div>
         <div class="col-md-8" style="">
             <div>
