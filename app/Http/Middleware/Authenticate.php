@@ -13,6 +13,8 @@ class Authenticate extends Middleware
      */
     protected function redirectTo(Request $request): ?string
     {
+
+        dd($request->bearerToken());
         throw new WebApiException("Access Denied", 403);
     }
 }

@@ -10,6 +10,7 @@ class MenuController extends Controller
 {
     public function view(Request $request): \Illuminate\Http\JsonResponse
     {
-        return $this->json_response(BackendMenu::all()->toTree());
+        BackendMenu::fixTree();
+        return $this->json_response(BackendMenu::orderByDesc('order')->get()->toTree());
     }
 }
