@@ -13,7 +13,6 @@ return new class extends Migration
     {
         Schema::create('g_answer_record', function (Blueprint $table) {
             $table->id('answer_record_id');
-            $table->boolean('adult')->default(0);// 答题记录类型： 1为成人版 2为儿童版
             $table->string('name', 10);
             $table->string('phone', 20);
             $table->integer('score');
@@ -27,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('answer_records');
+        Schema::dropIfExists('g_answer_record');
     }
 };

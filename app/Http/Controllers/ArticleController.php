@@ -58,7 +58,7 @@ class ArticleController extends Controller
         return $this->json_response([]);
     }
 
-    public function content(Request $request, Article $target)
+    public function content(Request $request, Article $target): \Illuminate\Http\JsonResponse
     {
         //$article.blade.php->author()->associate($request->user());
         $target->content_html = $target->content;
@@ -67,7 +67,7 @@ class ArticleController extends Controller
         return $this->json_response($target);
     }
 
-    public function update(Request $request, Article $target)
+    public function update(Request $request, Article $target): \Illuminate\Http\JsonResponse
     {
         $request->validate([
             'attachments' => 'array',
@@ -111,14 +111,14 @@ class ArticleController extends Controller
         return $this->json_response($target);
     }
 
-    public function list(Request $request)
+    public function list(Request $request): \Illuminate\Http\JsonResponse
     {
         $query = Article::with(['category', 'cover'])->orderByDesc('created_at');
 
         return $this->json_response($query->paginate(($request->has("limit") ? $request["limit"] : 10)));
     }
 
-    public function delete(Request $request)
+    public function delete(Request $request): \Illuminate\Http\JsonResponse
     {
         $request->validate([
             'article_ids' => 'array|required'

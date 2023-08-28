@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('g_question', function (Blueprint $table) {
             $table->id('question_id');
             $table->text('question_text')->fulltext();
+            $table->text('question_html')->fulltext();
             $table->json('option_data');
-            $table->boolean('adult')->default(0);
             $table->timestamps();
             $table->softDeletes();
         });
