@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\VisitRecord;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -17,5 +18,9 @@ class VisitRecordController extends Controller
             ]);
         });
         return $this->json_response();
+    }
+
+    public function statistic(){
+        $total_click = VisitRecord::where()
     }
 }
