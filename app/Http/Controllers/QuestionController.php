@@ -13,11 +13,19 @@ class QuestionController extends Controller
     }
     public function create(Request $request)
     {
-        return $this->json_response(Question::create($request->input()));
+        $request->validate(['option_data' => 'json']);
+        $target = new Question($request->input());
+        if($request->has('option_data'))
+            $target->option_data = json_decode($request['option_data']);
+        $target->save();
+        return $this->json_response($target);
     }
+
 
     public function update(Request $request, Question $target)
     {
+        if($request->has('option_data'))
+            $target->option_data = json_decode($request['option_data']);
         $target->update($request->input());
         return $this->json_response($request);
     }

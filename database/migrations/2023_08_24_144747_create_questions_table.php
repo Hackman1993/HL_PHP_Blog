@@ -16,6 +16,7 @@ return new class extends Migration
             $table->text('question_text')->fulltext();
             $table->text('question_html')->fulltext();
             $table->json('option_data');
+            $table->text('solution')->fulltext();
             $table->timestamps();
             $table->softDeletes();
         });

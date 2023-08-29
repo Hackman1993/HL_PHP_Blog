@@ -17,4 +17,29 @@ class ArticleCategoryController extends Controller
 
         return $this->json_response($query->get());
     }
+
+    public function list(Request $request)
+    {
+        $query = ArticleCategory::with(['articles'])->orderByDesc('created_at');
+        return $this->json_response($query->paginate($request['limit']));
+    }
+
+    public function create(Request $request)
+    {
+        return $this->json_response(ArticleCategory::create($request->input()));
+    }
+    public function update(Request $request, ArticleCategory $target)
+    {
+        $target->update($request->input());
+        return $this->json_response($target);
+    }
+
+    public function delete(Request $request)
+    {
+        $request->validate([
+            'ids' => 'array|required'
+        ]);
+        ArticleCategory::whereIn('art_category_id', $request['ids'])->delete();
+        return $this->json_response();
+    }
 }

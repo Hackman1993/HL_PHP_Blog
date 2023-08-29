@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id("visit_record_id");
             $table->string('key')->unique()->index();
             $table->unsignedBigInteger('count');
+            $table->date('occur_at')->useCurrent();
             $table->timestamps();
         });
     }

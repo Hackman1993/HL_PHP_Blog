@@ -32,17 +32,26 @@ Route::middleware('auth:sanctum')->group(function (){
     Route::put('/user/update/{target}', 'App\Http\Controllers\UserController@update');
     Route::delete('/user/delete', 'App\Http\Controllers\UserController@delete');
 
-    // Content
+    // Content.Article
     Route::post("/content/article/create", 'App\\Http\\Controllers\\ArticleController@create');
     Route::post("/content/article/update/{target}", 'App\\Http\\Controllers\\ArticleController@update');
     Route::delete("/content/article/delete", 'App\\Http\\Controllers\\ArticleController@delete');
     Route::post("/attachment/upload", 'App\\Http\\Controllers\\AttachmentController@upload');
+
+    // Content.Category
+    Route::get('/content/art_category/list', 'App\Http\Controllers\ArticleCategoryController@list');
+    Route::post('/content/art_category/create', 'App\Http\Controllers\ArticleCategoryController@create');
+    Route::put('/content/art_category/update', 'App\Http\Controllers\ArticleCategoryController@update');
+    Route::delete('/content/art_category/delete', 'App\Http\Controllers\ArticleCategoryController@delete');
 
     // Question
     Route::post("/question/create", 'App\Http\Controllers\QuestionController@create');
     Route::post("/question/update/{target}", 'App\Http\Controllers\QuestionController@update');
     Route::delete("/question/delete", 'App\Http\Controllers\QuestionController@delete');
     Route::get("/question", 'App\Http\Controllers\QuestionController@list');
+
+    // Statistic
+    Route::get("/statistic", 'App\Http\Controllers\VisitRecordController@statistic');
 
     Route::get("/backend/menu", 'App\\Http\\Controllers\\MenuController@view');
 });
