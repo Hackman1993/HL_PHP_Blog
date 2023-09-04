@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Question;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class QuestionController extends Controller
 {
@@ -37,5 +38,9 @@ class QuestionController extends Controller
         ]);
         Question::whereIn('question_id', $request['ids'])->delete();
         return $this->json_response();
+    }
+
+    public function getdb(Request $request){
+        return $this->json_response(Question::orderBy(DB::raw("RAND()"))->limit(10)->get());
     }
 }
