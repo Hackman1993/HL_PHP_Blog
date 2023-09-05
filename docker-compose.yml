@@ -1,6 +1,6 @@
 services:
     zk-official-laravel:
-        container_name: "zk-official-web"
+        container_name: "laravel"
         build:
             context: ./vendor/laravel/sail/runtimes/8.2
             dockerfile: Dockerfile
