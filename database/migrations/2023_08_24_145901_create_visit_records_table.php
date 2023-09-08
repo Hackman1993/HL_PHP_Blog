@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('g_visit_record', function (Blueprint $table) {
             $table->id("visit_record_id");
             $table->string('key')->unique()->index();
-            $table->unsignedBigInteger('count');
+            $table->unsignedBigInteger('count')->default(0);
             $table->date('occur_at')->useCurrent();
             $table->timestamps();
         });

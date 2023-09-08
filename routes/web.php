@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 //});
 Route::get("/", function (){
     $data = FrontendMenu::all()->toTree();
-    return view('index')->with('menus', $data);
+    return view('index'.env("TEMPLATE_PRE", ""))->with('menus', $data);
 });
 
 Route::get("/article/{target}", function (\Illuminate\Http\Request $request, \App\Models\Article $target){

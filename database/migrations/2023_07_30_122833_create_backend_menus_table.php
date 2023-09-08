@@ -20,6 +20,7 @@ return new class extends Migration
             $table->unsignedBigInteger("_rgt")->nullable();
             $table->foreignId("parent_id")->nullable();
             $table->foreignId("fn_permission_id")->nullable();
+            $table->unsignedInteger('order')->default(0);
             $table->timestamps();
             $table->softDeletes();
         });

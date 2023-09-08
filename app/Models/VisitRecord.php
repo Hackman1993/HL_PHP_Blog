@@ -11,5 +11,5 @@ class VisitRecord extends Model
     protected $primaryKey='visit_record_id';
     protected $table='g_visit_record';
 
-    protected $fillable=['key'];
+    protected $fillable=['key', 'count'];
 }
