@@ -10,7 +10,7 @@ class QuestionController extends Controller
 {
     public function list(Request $request){
         $query = Question::query();
-        return $this->json_response($query->paginate());
+        return $this->json_response($query->paginate($request['limit']));
     }
     public function create(Request $request)
     {
