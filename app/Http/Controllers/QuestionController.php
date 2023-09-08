@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\DB;
 class QuestionController extends Controller
 {
     public function list(Request $request){
-        $query = Question::query();
+        $query = Question::query()->orderByDesc("created_at");
         return $this->json_response($query->paginate($request['limit']));
     }
     public function create(Request $request)
