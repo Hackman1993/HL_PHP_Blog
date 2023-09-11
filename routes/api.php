@@ -26,6 +26,7 @@ Route::get("/attachment/info/{target}", 'App\\Http\\Controllers\\AttachmentContr
 Route::get('/visit/record', 'App\Http\Controllers\VisitRecordController@visit');
 Route::get('/sign/record', 'App\Http\Controllers\SignRecordController@sign');
 Route::get('/question/db', 'App\Http\Controllers\QuestionController@getdb');
+Route::post('/answer/record', 'App\Http\Controllers\AnswerRecordController@create');
 Route::middleware('auth:sanctum')->group(function (){
     // User
     Route::get('/user', 'App\Http\Controllers\UserController@list');
