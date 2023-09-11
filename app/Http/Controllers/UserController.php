@@ -2,11 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Permission;
 use App\Models\User;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
+    public function current(Request $request){
+        return $this->json_response([
+            'user' => $request->user(),
+            'permissions' => Permission::all()->pluck('code')->flip()
+        ]);
+    }
+
     public function list(Request $request): \Illuminate\Http\JsonResponse
     {
 //        $request->validate([

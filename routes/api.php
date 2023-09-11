@@ -33,6 +33,7 @@ Route::middleware('auth:sanctum')->group(function (){
     Route::post('/user/create', 'App\Http\Controllers\UserController@create');
     Route::put('/user/update/{target}', 'App\Http\Controllers\UserController@update');
     Route::delete('/user/delete', 'App\Http\Controllers\UserController@delete');
+    Route::get('/user/current', 'App\Http\Controllers\UserController@current');
 
     // Content.Article
     Route::post("/content/article/create", 'App\\Http\\Controllers\\ArticleController@create');
