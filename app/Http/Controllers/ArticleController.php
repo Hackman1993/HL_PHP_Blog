@@ -26,6 +26,7 @@ class ArticleController extends Controller
         if ($request->has('keywords')) {
             $target->keywords = implode(',', $request['keywords']);
         }
+
         if ($request->has("attachments")) {
             foreach ($request['attachments'] as $attachment_id) {
                 $attachment = Attachment::find($attachment_id);
@@ -40,6 +41,7 @@ class ArticleController extends Controller
                     $attachment->save();
                 }
             }
+            $target->save();
         }
         if ($request->has('fn_cover_id')) {
             $attachment = Attachment::find($request['fn_cover_id']);
@@ -52,7 +54,7 @@ class ArticleController extends Controller
                 $attachment->save();
             }
         }
-        $target->save();
+
         //$article.blade.php->author()->associate($request->user());
 
         return $this->json_response([]);
