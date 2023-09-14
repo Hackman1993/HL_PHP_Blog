@@ -20,7 +20,7 @@ class ArticleCategoryController extends Controller
 
     public function list(Request $request)
     {
-        $query = ArticleCategory::with(['articles'])->orderByDesc('created_at');
+        $query = ArticleCategory::withCount(['articles'])->with(['dictionaries'])->orderByDesc('created_at');
         return $this->json_response($query->paginate($request['limit']));
     }
 
@@ -30,7 +30,9 @@ class ArticleCategoryController extends Controller
     }
     public function update(Request $request, ArticleCategory $target)
     {
+        $request->validate([ 'dict_ids'=>'array']);
         $target->update($request->input());
+        $target->dictionaries()->sync($request['dict_ids']);
         return $this->json_response($target);
     }
 

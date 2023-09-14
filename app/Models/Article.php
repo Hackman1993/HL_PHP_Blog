@@ -29,4 +29,8 @@ class Article extends Model
     {
         return $this->hasOne(Attachment::class, 'attachment_id', 'fn_cover_id');
     }
+
+    public function dictionary(){
+        return $this->belongsToMany(Dictionary::class, 't_mid_article_dictionary','article_id', 'dictionary_id');
+    }
 }

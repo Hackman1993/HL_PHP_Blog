@@ -11,12 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('t_dictionary', function (Blueprint $table) {
-            $table->id('dictionary_id');
-            $table->string('dict_key')->unique()->index();
-            $table->string('name');
-            $table->timestamps();
-            $table->softDeletes();
+        Schema::create('t_mid_article_category_dictionary', function (Blueprint $table) {
+            $table->foreignId('article_category_id');
+            $table->foreignId('dictionary_id');
         });
     }
 
@@ -25,6 +22,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('t_dictionary');
+        Schema::dropIfExists('t_mid_article_dictionary');
     }
 };

@@ -21,4 +21,8 @@ class ArticleCategory extends Model
     {
         return $this->hasMany(Article::class, 'fn_category_id', 'art_category_id');
     }
+
+    public function dictionaries(){
+        return $this->belongsToMany(Dictionary::class, 't_mid_article_category_dictionary', 'article_category_id', 'dictionary_id');
+    }
 }

@@ -11,10 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('t_dictionary', function (Blueprint $table) {
-            $table->id('dictionary_id');
-            $table->string('dict_key')->unique()->index();
-            $table->string('name');
+        Schema::create('t_dictionary_item', function (Blueprint $table) {
+            $table->id('dict_item_id');
+            $table->string('text');
+            $table->string('item_key');
+            $table->boolean('translate');
+            $table->foreignId('fn_dictionary_id');
             $table->timestamps();
             $table->softDeletes();
         });
@@ -25,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('t_dictionary');
+        Schema::dropIfExists('t_dictionary_item');
     }
 };

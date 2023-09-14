@@ -37,6 +37,8 @@ Route::middleware('auth:sanctum')->group(function (){
 
     // Dictionary
     Route::get('/dictionary', 'App\Http\Controllers\DictionaryController@list');
+    Route::get('/dictionary/by_key', 'App\Http\Controllers\DictionaryController@get_by_key');
+    Route::get('/dictionary/all_parent', 'App\Http\Controllers\DictionaryController@all_parent');
     Route::post('/dictionary/create', 'App\Http\Controllers\DictionaryController@create');
     Route::post('/dictionary/update/{target}', 'App\Http\Controllers\DictionaryController@update');
     Route::delete('/dictionary/delete', 'App\Http\Controllers\DictionaryController@delete');
@@ -50,7 +52,7 @@ Route::middleware('auth:sanctum')->group(function (){
     // Content.Category
     Route::get('/content/art_category/list', 'App\Http\Controllers\ArticleCategoryController@list');
     Route::post('/content/art_category/create', 'App\Http\Controllers\ArticleCategoryController@create');
-    Route::put('/content/art_category/update', 'App\Http\Controllers\ArticleCategoryController@update');
+    Route::post('/content/art_category/update/{target}', 'App\Http\Controllers\ArticleCategoryController@update');
     Route::delete('/content/art_category/delete', 'App\Http\Controllers\ArticleCategoryController@delete');
 
 
