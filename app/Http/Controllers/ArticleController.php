@@ -18,7 +18,8 @@ class ArticleController extends Controller
             'content' => 'string',
             'fn_category_id' => 'integer',
             'attachments' => 'array',
-            'keywords' => 'array'
+            'keywords' => 'array',
+            'dict_item_ids'=>'array'
         ]);
         $target = new Article($request->input());
         $target->content = $request['content'];
@@ -41,7 +42,6 @@ class ArticleController extends Controller
                     $attachment->save();
                 }
             }
-            $target->save();
         }
         if ($request->has('fn_cover_id')) {
             $attachment = Attachment::find($request['fn_cover_id']);
@@ -54,9 +54,8 @@ class ArticleController extends Controller
                 $attachment->save();
             }
         }
-
-        //$article.blade.php->author()->associate($request->user());
-
+        $target->dict_item()->sync($request['dict_item_ids']);
+        $target->save();
         return $this->json_response([]);
     }
 
@@ -65,6 +64,7 @@ class ArticleController extends Controller
         //$article.blade.php->author()->associate($request->user());
         $target->content_html = $target->content;
         $target->cover = $target->cover;
+        $target->dict_item_ids = $target->dict_item->pluck('dict_item_id');
 
         return $this->json_response($target);
     }
@@ -109,7 +109,7 @@ class ArticleController extends Controller
 
         $target->update($request->input());
         $target->save();
-
+        $target->dict_item()->sync($request['dict_item_ids']);
         return $this->json_response($target);
     }
 

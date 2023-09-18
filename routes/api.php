@@ -51,6 +51,7 @@ Route::middleware('auth:sanctum')->group(function (){
 
     // Content.Category
     Route::get('/content/art_category/list', 'App\Http\Controllers\ArticleCategoryController@list');
+    Route::get('/content/art_category/detail/{target}', 'App\Http\Controllers\ArticleCategoryController@detail');
     Route::post('/content/art_category/create', 'App\Http\Controllers\ArticleCategoryController@create');
     Route::post('/content/art_category/update/{target}', 'App\Http\Controllers\ArticleCategoryController@update');
     Route::delete('/content/art_category/delete', 'App\Http\Controllers\ArticleCategoryController@delete');

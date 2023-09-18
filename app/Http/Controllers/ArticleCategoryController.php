@@ -11,7 +11,7 @@ class ArticleCategoryController extends Controller
     public function view(Request $request): \Illuminate\Http\JsonResponse
     {
 
-        $query = ArticleCategory::query();
+        $query = ArticleCategory::with(['dictionaries.items']);
         if($request->has('except'))
             $query->where("art_category_id", "<>", $request->input('except'));
 
@@ -27,6 +27,11 @@ class ArticleCategoryController extends Controller
     public function create(Request $request)
     {
         return $this->json_response(ArticleCategory::create($request->input()));
+    }
+
+    public function detail(Request $request, ArticleCategory $target){
+        $target->dictionaries = $target->dictionaries()->with(['items'])->get();
+        return $this->json_response($target);
     }
     public function update(Request $request, ArticleCategory $target)
     {
