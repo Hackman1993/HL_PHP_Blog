@@ -13,7 +13,7 @@ class Attachment extends Model
     protected $table='t_attachment';
     protected $primaryKey="attachment_id";
 
-    protected $fillable=['url', 'file_size', 'storage_path', 'access_url', "original_name", 'hashname'];
+    protected $fillable=['url', 'file_size', 'storage_path', 'access_url', "original_name", 'hashname', 'sha512'];
     protected $hidden = ['created_at', 'updated_at', 'deleted_at'];
 
     public function attachable(): \Illuminate\Database\Eloquent\Relations\MorphTo

@@ -66,6 +66,9 @@ Route::middleware('auth:sanctum')->group(function (){
 
     // Statistic
     Route::get("/statistic", 'App\Http\Controllers\VisitRecordController@statistic');
-
     Route::get("/backend/menu", 'App\\Http\\Controllers\\MenuController@view');
 });
+
+// RenderingJobs
+Route::get("/render_job", 'App\Http\Controllers\RenderingJobController@test');
+Route::post("/render_job/upload", 'App\Http\Controllers\RenderingJobController@upload');

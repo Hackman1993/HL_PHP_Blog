@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string("url", 255);
             $table->string("access_url", 255);
             $table->string("hashname", 255);
+            $table->string('sha512')->index();
             $table->string("original_name", 255);
             $table->nullableMorphs('attachable');
             $table->unsignedBigInteger("file_size")->default(0);
