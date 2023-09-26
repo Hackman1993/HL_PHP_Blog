@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Attachment;
 use App\Models\RenderingJob;
+use App\Protobuf\Model\RenderingJobItem;
+use Denpa\ZeroMQ\Facades\ZeroMQ;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use longlang\phpkafka\Producer\Producer;
@@ -59,5 +61,21 @@ class RenderingJobController extends Controller
         $attachment->attachable()->associate($render_job);
         $attachment->save();
         return $this->json_response();
+    }
+
+    public function finish_upload(Request $request){
+        $job = new RenderingJobItem();
+        $job->setFrame(930922);
+
+        $request->validate([
+            'token' => 'required|string|exists:t_rendering_job,job_key',
+        ]);
+
+//        $render_job = RenderingJob::where('job_key', $request['token'])->first();
+//        if($render_job){
+//        }
+        ZeroMQ::push($job->serializeToString());
+        return $this->json_response();
+
     }
 }

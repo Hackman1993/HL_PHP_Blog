@@ -16,6 +16,8 @@ return new class extends Migration
             $table->string('name')->unique()->index();
             $table->string('job_key')->unique()->index();
             $table->foreignId('owner_id');
+            $table->foreignId('status');
+            $table->integer('frame_count')->default(0);
             $table->timestamps();
             $table->softDeletes();
         });

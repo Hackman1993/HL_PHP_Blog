@@ -72,3 +72,4 @@ Route::middleware('auth:sanctum')->group(function (){
 // RenderingJobs
 Route::get("/render_job", 'App\Http\Controllers\RenderingJobController@test');
 Route::post("/render_job/upload", 'App\Http\Controllers\RenderingJobController@upload');
+Route::put("/render_job/finish_upload", 'App\Http\Controllers\RenderingJobController@finish_upload');
