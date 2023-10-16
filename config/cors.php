@@ -19,7 +19,7 @@ return [
 
     'allowed_methods' => ["*"],
 
-    'allowed_origins' => ['http://localhost:5173', 'http://test1.i4u.icu', 'http://localhost:3000'],
+    'allowed_origins' => ['http://localhost:5173', 'http://www.zk-tec.cn', 'http://localhost:3000'],
 
     'allowed_origins_patterns' => [],
 
