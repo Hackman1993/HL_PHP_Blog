@@ -168,7 +168,6 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-        Denpa\ZeroMQ\Providers\ServiceProvider::class,
     ])->toArray(),
 
     /*
@@ -184,7 +183,6 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
         // 'Example' => App\Facades\Example::class,
-        'ZeroMQ' => Denpa\ZeroMQ\Facades\ZeroMQ::class,
     ])->toArray(),
 
 ];
