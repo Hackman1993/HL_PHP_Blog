@@ -33,6 +33,9 @@ Route::get("/search", function (\Illuminate\Http\Request $request){
     if($request->has('search')){
         $query->whereFullText(['content', 'title', 'keywords'], $request['search']);
     }
-
     return view('search')->with('menus', $data)->with('articles', $query->paginate($request['limit']? $request['limit']:10))->with('search', $request['search']);
+});
+
+Route::fallback(function (){
+   return view("backend_common");
 });
