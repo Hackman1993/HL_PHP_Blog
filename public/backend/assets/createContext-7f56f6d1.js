@@ -1,0 +1,1 @@
+import{_ as c}from"./_getTag-cb3a9032.js";import{A as i,p as u,D as m,i as p}from"./index-21df96f3.js";function l(o,e){const n=c({},o);for(let t=0;t<e.length;t+=1){const r=e[t];delete n[r]}return n}function x(o){const e=Symbol("contextKey");return{useProvide:(r,a)=>{const s=i({});return u(e,s),m(()=>{c(s,r,a||{})}),s},useInject:()=>p(e,o)||{}}}export{x as c,l as o};

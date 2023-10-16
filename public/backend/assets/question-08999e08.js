@@ -1,0 +1,1 @@
+import{r as t}from"./request-a2427700.js";const o=e=>t("/question/db",e),n=e=>t("/question","get",e),r=e=>t("/question/create","post",e),i=e=>t(`/question/update/${e.question_id}`,"post",e),u=e=>t("/question/delete","delete",e),p=e=>t("/sign/record","get",e),a=e=>t("/answer/record","post",e);export{r as A,i as a,n as b,u as c,o as d,a as e,p as f};
