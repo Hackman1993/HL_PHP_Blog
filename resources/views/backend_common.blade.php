@@ -4,7 +4,7 @@
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title></title>
-    <script type="module" crossorigin src="/backend/assets/index-b3aac28e.js"></script>
+    <script type="module" crossorigin src="/backend/assets/index-21df96f3.js"></script>
 </head>
 <body>
 <div id="app">
