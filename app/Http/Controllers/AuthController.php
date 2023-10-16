@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Log;
 
 class AuthController extends Controller
 {
@@ -19,6 +20,7 @@ class AuthController extends Controller
             "username" => $request['login'],
         ])->first();
 
+        Log::warning($request["password"]);
         if($user && Hash::check($request['password'], $user->password)){
             $token = $user->createToken('access_token');
             return $this->json_response([
