@@ -5,6 +5,7 @@ namespace App\Http\Middleware;
 use App\Exceptions\WebApiException;
 use Illuminate\Auth\Middleware\Authenticate as Middleware;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class Authenticate extends Middleware
 {
@@ -14,7 +15,7 @@ class Authenticate extends Middleware
     protected function redirectTo(Request $request): ?string
     {
 
-        dd($request->bearerToken());
+        Log::warning($request->bearerToken());
         throw new WebApiException("Access Denied", 403);
     }
 }
